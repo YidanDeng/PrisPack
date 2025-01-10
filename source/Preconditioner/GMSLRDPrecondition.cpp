@@ -237,9 +237,6 @@ namespace HOST {
                 subMatEndColNo = n_end + n_remain - 1;
                 Apq.getSubMatrix(subMatStartRowNo, subMatEndRowNo, subMatStartColNo, subMatEndColNo, level_str.E_mat);
                 Apq.getSubMatrix(subMatStartColNo, subMatEndColNo, subMatStartRowNo, subMatEndRowNo, level_str.F_mat);
-                // 把E块对应的非零元计入M的总非0元数
-//                if (n_local != 0 && n_remain != 0)
-//                    this->m_Mnnz += level_str.E_mat.getNNZnum(0, level_str.E_mat.getRowNum() - 1);
                 //提取C矩阵
                 subMatStartRowNo = n_end;
                 subMatEndRowNo = n_end + n_remain - 1;
@@ -822,22 +819,7 @@ namespace HOST {
             // reorth_w.setValsByCol(i, *w);
             // levelCInvRecursiveSolve(level, *w, 0); // 计算 w = C_{l}^(-1) * v = A_{l+1}^{-1} * v
             levelCInvRecursiveSolveWithCorrection(level, *w, 0);
-            /* 计算 w 向量的重正交过程 */
-            /* TODO: 感觉这里还是不稳定，有时好有时坏 */
-            // if (i > 1) {
-            //     // x -= \sum{(x, xj) * zj}
-            //     UINT32 k;
-            //     FLOAT64 tmp_product;
-            //     HighPrecisionType *reorth_w_ptr = reorth_w.getMatValPtr();
-            //     for (k = 0; k < i - 1; ++k) {
-            //         tmp_product = w->innerProduct(0, reorth_w_ptr, n_remain);
-            //         for (UINT32 idx = 0; idx < n_remain; ++idx) {
-            //             w[idx] -= reorth_w_ptr[idx] * tmp_product;
-            //         }
-            //         // v.add(-1, *out_vec);
-            //         reorth_w_ptr += n_remain;
-            //     }
-            // }
+
             /* 计算 \beta_{j+1} = sqrt((w, x))*/
             // 当beta小于或等于0，直接退出循环
             HighPrecisionType tmp = w->innerProduct(*v);
