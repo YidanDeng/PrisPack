@@ -12,8 +12,7 @@
 
   * 平台：gitee（码云）、github
 
-* 编译模式：	![image-20240905162203888](./markdown_pictures/README/image-20240905162203888.png)
-
+* 编译模式：
   * 命令行编译指令：
 
     * Debug模式：
