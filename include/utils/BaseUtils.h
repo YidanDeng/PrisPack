@@ -5,6 +5,8 @@
  */
 
 #ifndef PMSLS_DEV_BASEUTILS_H
+#define PMSLS_DEV_BASEUTILS_H
+
 extern "C++" {
 
 #include "../../config/headers.h"
@@ -86,7 +88,6 @@ inline void transStrToLower(std::string &str) {
 
 }
 
-#define PMSLS_DEV_BASEUTILS_H
 #endif //PMSLS_DEV_BASEUTILS_H
 
 

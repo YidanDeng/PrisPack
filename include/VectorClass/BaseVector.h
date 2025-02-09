@@ -12,7 +12,6 @@
 
 #endif
 
-
 #define RESERVE_DATA 1
 #define RESERVE_NO_DATA 0
 #define HOST_SPACE (-1)
